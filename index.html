@@ -39,7 +39,8 @@
     font-family: 'Great Vibes', cursive; 
     font-size: 3.5rem; 
     color: #2c3e50; 
-    margin-bottom: 10px; 
+    margin-top: 40px; /* Lowered "Save the Date" */
+    margin-bottom: 5px; 
     text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8); 
     pointer-events: none; 
   }
@@ -63,13 +64,14 @@
     pointer-events: none; 
   }
 
+  /* Lowered the Date position inside the heart */
   .reveal-content h1 { 
     font-size: 1.8rem; 
     font-weight: 600; 
     letter-spacing: 2px; 
     color: #1a2a6c; 
     line-height: 1.4; 
-    padding-bottom: 30px; 
+    padding-top: 40px; /* Pushes the date text down */
     margin: 0; 
   }
 
@@ -93,7 +95,7 @@
   }
 
   .names { 
-    margin-top: 15px; 
+    margin-top: 10px; 
     font-family: 'Great Vibes', cursive; 
     font-size: 3.5rem; 
     color: #2c3e50; 
@@ -102,7 +104,8 @@
 
   .circle-hint { 
     position: absolute; 
-    top: 50%; left: 50%; 
+    top: 55%; /* Lowered the hint slightly too */
+    left: 50%; 
     width: 50px; height: 50px; 
     margin-left: -25px; margin-top: -25px; 
     border: 3px solid white; 
@@ -166,7 +169,7 @@ class HeartParticle {
     this.maxSize = Math.random() * 14 + 10;
     this.opacity = 1;
     this.speedY = Math.random() * -1.2 - 0.6;
-    this.speedX = (Math.random() - 0.5) * 1.5; // Added slight horizontal drift
+    this.speedX = (Math.random() - 0.5) * 1.5;
     this.color = `rgba(212, 175, 55,`; 
   }
   draw() {
@@ -211,7 +214,6 @@ function handleAction(e) {
   gCtx.globalCompositeOperation = 'destination-out';
   gCtx.beginPath(); gCtx.arc(x, y, 25, 0, Math.PI * 2); gCtx.fill();
 
-  // ADJUSTED FREQUENCY: Spawns about 1 out of every 5 move events (20%)
   if (Math.random() > 0.8) { 
     particles.push(new HeartParticle(x, y));
   }
